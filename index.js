@@ -30,7 +30,7 @@ const { y } = require('./App');
 // }).listen(4000)
 
 // reading html file
-const fs = require('fs')
+// const fs = require('fs')
 
 // http.createServer((req, res) => {
 //     fs.readFile('demo.html',function(err,data) {
@@ -49,3 +49,20 @@ const fs = require('fs')
 
 
 //file system
+const fs = require('fs');
+const path = require('path');
+
+const dirPath = path.join(__dirname,'files')
+console.warn(dirPath)
+
+// for(i=0; i<4;i++) {
+//     fn = `hello${i}.txt`
+//     content = `content in file hello${i}.txt`
+//     fs.writeFileSync(dirPath+"/"+fn, content)
+// }
+
+fs.readdir(dirPath,(err,data)=>{
+    data.forEach((d)=>{
+        console.log(d)
+    })
+})
