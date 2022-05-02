@@ -61,8 +61,8 @@ for(i=0; i<4;i++) {
     fs.writeFileSync(dirPath+"/"+fn, content)
 }
 
-// fs.readdir(dirPath,(err,data)=>{
-//     data.forEach((d)=>{
-//         fs.unlinkSync(`${dirPath}/${d}`)
-//     })
-// })
+fs.readdir(dirPath,(err,data)=>{
+    data.forEach((d)=>{
+        fs.unlinkSync(`${dirPath}/${d}`)
+    })
+})
