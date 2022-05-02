@@ -55,14 +55,14 @@ const path = require('path');
 const dirPath = path.join(__dirname,'files')
 console.warn(dirPath)
 
-// for(i=0; i<4;i++) {
-//     fn = `hello${i}.txt`
-//     content = `content in file hello${i}.txt`
-//     fs.writeFileSync(dirPath+"/"+fn, content)
-// }
+for(i=0; i<4;i++) {
+    fn = `hello${i}.txt`
+    content = `content in file hello${i}.txt`
+    fs.writeFileSync(dirPath+"/"+fn, content)
+}
 
-fs.readdir(dirPath,(err,data)=>{
-    data.forEach((d)=>{
-        console.log(d)
-    })
-})
+// fs.readdir(dirPath,(err,data)=>{
+//     data.forEach((d)=>{
+//         fs.unlinkSync(`${dirPath}/${d}`)
+//     })
+// })
