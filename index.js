@@ -2,8 +2,8 @@
 
 // console.log(__filename)
 
-const http = require('http');
-const { y } = require('./App');
+// const http = require('http');
+// const { y } = require('./App');
 
 // http.createServer((req,res)=>{
 //     res.write("hello")
@@ -30,6 +30,7 @@ const { y } = require('./App');
 // }).listen(4000)
 
 // reading html file
+// const http = require('http')
 // const fs = require('fs')
 
 // http.createServer((req, res) => {
@@ -49,20 +50,61 @@ const { y } = require('./App');
 
 
 //file system
-const fs = require('fs');
-const path = require('path');
 
-const dirPath = path.join(__dirname,'files')
-console.warn(dirPath)
+// import * as fs from "fs";
+// const fs = require('fs');
+// const path = require('path');
 
-for(i=0; i<4;i++) {
-    fn = `hello${i}.txt`
-    content = `content in file hello${i}.txt`
-    fs.writeFileSync(dirPath+"/"+fn, content)
-}
+// const dirPath = path.join(__dirname,'files')
+// console.warn(dirPath)
 
-fs.readdir(dirPath,(err,data)=>{
-    data.forEach((d)=>{
-        fs.unlinkSync(`${dirPath}/${d}`)
-    })
+// for(i=0; i<4;i++) {
+//     fn = `hello${i}.txt`
+//     content = `content in file hello${i}.txt`
+//     fs.writeFileSync(dirPath+"/"+fn, content)
+// }
+
+// fs.readdir(dirPath,(err,data)=>{
+//     data.forEach((d)=>{
+//         fs.unlinkSync(`${dirPath}/${d}`)
+//     })
+// })
+
+
+// sendresponse
+// const express = require('express')
+const path = require('path')
+
+// const app = express()
+const dp = path.join(__dirname,"public")
+// const dp2 = path.join(__dirname,"")
+
+// // app.use(express.static("./public"))
+// app.get('', (req, res)=>{
+//     res.sendFile(`${dp}/about.html`)
+// })
+
+// app.get('*',(req, res)=>{
+//     res.sendFile(`${dp}/404.html`)
+// })
+// app.listen(4000)
+
+
+
+//ejs module example
+const express = require('express')
+const app = express()
+const port = 4000
+
+app.get('', (req, res)=>{
+    res.sendFile(`${dp}/about.html`)
+})
+
+app.set('view engine', 'ejs')
+
+app.get('/dy', (req, res) => {
+    res.render('dynamic')
+})
+app.listen(port, () => {
+  console.log(`App listening at port ${port}`)
 })

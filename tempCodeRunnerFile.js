@@ -1,4 +1,4 @@
-fs.readdir(dirPath,(err,data)=>{
+// fs.readdir(dirPath,(err,data)=>{
 //     data.forEach((d)=>{
 //         fs.unlinkSync(`${dirPath}/${d}`)
 //     })
